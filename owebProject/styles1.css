@@ -1,0 +1,310 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    font-family: 'Brush Script MT', cursive, sans-serif;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	
+}
+
+
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+    
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    line-height: 1;
+    background-image: linear-gradient(orange,rgb(255, 204, 108));
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+.header 
+  {
+    font-family: 'Brush Script MT', cursive, sans-serif;
+      height: 10vh;
+      width: 100vw;
+      background-image: linear-gradient(orange,rgb(255, 204, 108));
+      font-size: 15px;
+  }
+
+  .header h1{
+    text-align: center;
+    float: left;
+    line-height: 10vh;
+    margin-left: 2%;
+    font-size: 1.2em;
+    text-decoration-style: double;
+    color: rgb(0, 0, 0);
+}
+
+.menu
+{
+    height: 100%;
+    float: right;
+    margin-right: 5%;
+    display: flex;
+    color: #fc8626
+}
+
+.menu button{
+    font-family: 'Brush Script MT', cursive, sans-serif;
+    min-height: 10vh;
+    min-width: 9vw;
+    max-width: 9vw;
+    text-transform: uppercase;
+    text-decoration: wavy;
+    color:  #fc8626;
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    z-index: 999;
+  }
+.dropdown-content {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.25s linear;
+    position: absolute;
+    min-width: 9vw;
+    min-height: 5vh;
+    max-height: 5vh;
+  }
+.dropdown-content button {
+    font-family: 'Brush Script MT', cursive, sans-serif;
+    background-color: #fc8626;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    display: block;
+    min-height: 5vh;
+    max-height: 5vh;
+    min-width: 9vw;
+    cursor: pointer;
+  }
+  .dropdown-content a {
+    font-family: 'Brush Script MT', cursive, sans-serif;
+      text-decoration: none;
+  }
+
+  .dropdown-content button:hover {background-color: rgb(255, 255, 255);}
+  .dropdown:hover .dropdown-content {visibility: visible; opacity: 1;}
+  .menu a:hover, .dropdown:hover .dropbtn {
+    background-color: rgb(240, 234, 234);
+  }
+
+  
+
+  .list {
+    font-family: 'Brush Script MT', cursive, sans-serif;
+    display:flex;
+    align-items:center;
+    justify-content: space-around;
+    list-style: none;
+}
+#b1 {
+    min-height: 10vh;
+    max-height: 10vh;
+    min-width: 9vw;
+    max-width: 9vw;
+    display: inline-block;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+img:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+.webprogrammingimg {
+    justify-content: center;
+    display:inline;
+    position:relative;
+    object-fit:fill;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 49%;
+    height: auto;
+  }
+
+  .galleryimage{
+    justify-content: center; 
+    background-color: linear-gradient(rgb(189, 170, 3),rgb(255, 236, 68));
+    object-fit: fill;
+    width: 99%;
+    height: 60%;
+    padding: 0;
+    border: 0.5em solid gray;
+  }
+
+  .contact
+{
+    display: flex;
+    justify-content: center;
+    margin-top:100px;
+}
+.contacticons
+{
+    transition: transform .1s ease-in;
+    cursor: pointer;
+    width: 120px;
+    height: 120px;
+    margin: 10px;
+}
+.contacticons:hover
+{
+    transform: scale(1.05);
+}
+
+
+.biophoto{
+    display: inline-block;
+}
+.biophotop {
+    position:absolute;
+    background-color:rgb(255, 204, 108);
+    margin-top: 5vh;
+    margin-left: 2em;
+    margin-right: 110vh;
+    padding: 30px;
+    border-radius: 1cm;
+}
+
+.boxbio{
+    display:inline-block;
+    vertical-align: top;
+}
+
+.boxbiop {
+    background-color:rgb(255, 204, 108);
+    display: inline-block;
+    margin-top: 5vh;
+    margin-left: 100vh;
+    margin-right: 5em;
+    padding: 30px;
+    border-radius: 1cm;
+    
+}
+.biophoto:hover{
+    box-shadow: 0 0 0 0;
+}
+.biophotop:hover{
+    box-shadow: 0 0 0 0;
+}
+.homediv{
+    vertical-align:top;
+}
+
+.boxcontact{
+    justify-items: center;
+    text-align: center;
+}
+
+.boxcontactp {
+    justify-items: center;
+    background-color:rgb(255, 204, 108);
+    margin: auto;
+    width: 50%;
+    padding: 30px;
+    border-radius: 1cm;
+    
+}
+
+.boxfood{
+    
+    justify-items: center;
+    text-align: center;
+}
+.boxfoodp {
+    justify-items: center;
+    background-color:rgb(255, 204, 108);
+    
+    margin: auto;
+    margin-top: 20vh;
+    width: 50%;
+    padding: 30px;
+    border-radius: 1cm;
+}
+
+.pizzaimg{
+    
+    text-align: center;
+    background-color:rgb(255, 204, 108);
+    margin: auto;
+    margin-top: 1vh;
+    width: 50%;
+    
+    padding: 30px;
+    border-radius: 1cm;
+}
+
+.boxmovie{
+    
+    justify-items: center;
+    text-align: center;
+}
+.boxmoviep {
+    justify-items: center;
+    background-color:rgb(255, 204, 108);
+    
+    margin: auto;
+    margin-top: 20vh;
+    width: 50%;
+    padding: 30px;
+    border-radius: 1cm;
+}
+
+.movieimg{
+    
+    text-align: center;
+    background-color:rgb(255, 204, 108);
+    margin: auto;
+    margin-top: 1vh;
+    width: 50%;
+    
+    padding: 30px;
+    border-radius: 1cm;
+}
+
+.boxmusic{
+    
+    justify-items: center;
+    text-align: center;
+}
+.boxmusicp {
+    justify-items: center;
+    background-color:rgb(255, 204, 108);
+    
+    margin: auto;
+    margin-top: 20vh;
+    width: 50%;
+    padding: 30px;
+    border-radius: 1cm;
+}
