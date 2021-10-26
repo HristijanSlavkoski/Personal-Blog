@@ -15,45 +15,43 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	
 }
-
-
 
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
 body {
-    
     margin: 0;
     background-repeat: no-repeat;
     background-attachment: fixed;
     line-height: 1;
     background-image: linear-gradient(orange,rgb(255, 204, 108));
 }
+
 ol, ul {
 	list-style: none;
 }
+
 blockquote, q {
 	quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+
+blockquote:before, blockquote:after,q:before, q:after {
 	content: '';
 	content: none;
 }
 
-.header 
-  {
+.header {
     font-family: 'Brush Script MT', cursive, sans-serif;
       height: 10vh;
       width: 100vw;
       background-image: linear-gradient(orange,rgb(255, 204, 108));
       font-size: 15px;
-  }
+}
 
-  .header h1{
+.header h1{
     text-align: center;
     float: left;
     line-height: 10vh;
@@ -63,8 +61,7 @@ q:before, q:after {
     color: rgb(0, 0, 0);
 }
 
-.menu
-{
+.menu{
     height: 100%;
     float: right;
     margin-right: 5%;
@@ -82,12 +79,12 @@ q:before, q:after {
     color:  #fc8626;
 }
 
-
-.dropdown {
+.dropdown{
     position: relative;
     display: inline-block;
     z-index: 999;
-  }
+}
+
 .dropdown-content {
     visibility: hidden;
     opacity: 0;
@@ -96,7 +93,8 @@ q:before, q:after {
     min-width: 9vw;
     min-height: 5vh;
     max-height: 5vh;
-  }
+}
+
 .dropdown-content button {
     font-family: 'Brush Script MT', cursive, sans-serif;
     background-color: #fc8626;
@@ -107,28 +105,35 @@ q:before, q:after {
     max-height: 5vh;
     min-width: 9vw;
     cursor: pointer;
-  }
-  .dropdown-content a {
+}
+
+.dropdown-content a {
     font-family: 'Brush Script MT', cursive, sans-serif;
       text-decoration: none;
-  }
+}
 
-  .dropdown-content button:hover {background-color: rgb(255, 255, 255);}
-  .dropdown:hover .dropdown-content {visibility: visible; opacity: 1;}
-  .menu a:hover, .dropdown:hover .dropbtn {
+.dropdown-content button:hover{
+      background-color: rgb(255, 255, 255);
+}
+.dropdown:hover .dropdown-content {
+    visibility: visible; opacity: 1;
+}
+
+.menu a:hover, .dropdown:hover .dropbtn {
     background-color: rgb(240, 234, 234);
-  }
+}
 
   
 
-  .list {
+.list{
     font-family: 'Brush Script MT', cursive, sans-serif;
     display:flex;
     align-items:center;
     justify-content: space-around;
     list-style: none;
 }
-#b1 {
+
+#b1{
     min-height: 10vh;
     max-height: 10vh;
     min-width: 9vw;
@@ -138,11 +143,11 @@ q:before, q:after {
     text-transform: uppercase;
 }
 
-img:hover {
+img:hover{
     box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }
 
-.webprogrammingimg {
+.webprogrammingimg{
     justify-content: center;
     display:inline;
     position:relative;
@@ -164,29 +169,28 @@ img:hover {
     border: 0.5em solid gray;
   }
 
-  .contact
-{
+  .contact{
     display: flex;
     justify-content: center;
     margin-top:100px;
 }
-.contacticons
-{
+
+.contacticons{
     transition: transform .1s ease-in;
     cursor: pointer;
     width: 120px;
     height: 120px;
     margin: 10px;
 }
-.contacticons:hover
-{
+
+.contacticons:hover{
     transform: scale(1.05);
 }
-
 
 .biophoto{
     display: inline-block;
 }
+
 .biophotop {
     position:absolute;
     background-color:rgb(255, 204, 108);
@@ -212,12 +216,15 @@ img:hover {
     border-radius: 1cm;
     
 }
+
 .biophoto:hover{
     box-shadow: 0 0 0 0;
 }
+
 .biophotop:hover{
     box-shadow: 0 0 0 0;
 }
+
 .homediv{
     vertical-align:top;
 }
@@ -234,18 +241,16 @@ img:hover {
     width: 50%;
     padding: 30px;
     border-radius: 1cm;
-    
 }
 
-.boxfood{
-    
+.boxfood{ 
     justify-items: center;
     text-align: center;
 }
+
 .boxfoodp {
     justify-items: center;
     background-color:rgb(255, 204, 108);
-    
     margin: auto;
     margin-top: 20vh;
     width: 50%;
@@ -254,26 +259,23 @@ img:hover {
 }
 
 .pizzaimg{
-    
     text-align: center;
     background-color:rgb(255, 204, 108);
     margin: auto;
     margin-top: 1vh;
     width: 50%;
-    
     padding: 30px;
     border-radius: 1cm;
 }
 
 .boxmovie{
-    
     justify-items: center;
     text-align: center;
 }
+
 .boxmoviep {
     justify-items: center;
     background-color:rgb(255, 204, 108);
-    
     margin: auto;
     margin-top: 20vh;
     width: 50%;
@@ -282,26 +284,23 @@ img:hover {
 }
 
 .movieimg{
-    
     text-align: center;
     background-color:rgb(255, 204, 108);
     margin: auto;
     margin-top: 1vh;
     width: 50%;
-    
     padding: 30px;
     border-radius: 1cm;
 }
 
 .boxmusic{
-    
     justify-items: center;
     text-align: center;
 }
+
 .boxmusicp {
     justify-items: center;
     background-color:rgb(255, 204, 108);
-    
     margin: auto;
     margin-top: 20vh;
     width: 50%;
