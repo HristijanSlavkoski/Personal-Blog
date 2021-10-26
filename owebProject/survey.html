@@ -50,6 +50,104 @@
             </nav>
         </div>
 
+        <div class="survey">
+            <p class="Givefeedback"> 
+                <strong>Give feedback<br></strong><br>
+            </p>
+            <form method = "get" action = "feedback.png">
+                <label class="paddingsurvey"><strong>First name:</strong><br>
+                    <input name = "name" type = "text" size = "25"
+                    maxlength = "30">
+                    <br>
+                </label>
+                <label><strong>Last name:</strong><br>
+                    <input name = "name" type = "text" size = "25"
+                    maxlength = "30">
+                    <br>
+                </label>
+                <p class="paddingsurvey">
+                    <br><strong>Rate the page</strong>
+                </p>
+                <label>
+                    <input name="rating" type="radio"
+                    value="1">
+                    1<br>
+                </label>
+                <label>
+                    <input name="rating" type="radio"
+                    value="2">
+                    2<br>
+                </label>
+                <label>
+                    <input name="rating" type="radio"
+                    value="3">
+                    3<br>
+                </label>
+                <label>
+                    <input name="rating" type="radio"
+                    value="4">
+                    4<br>
+                </label>
+                <label>
+                    <input name="rating" type="radio"
+                    value="5">
+                    5<br>
+                </label>  
+                
+                <p class="paddingsurvey">
+                    <br><strong>Which topic you liked the most?</strong>
+                </p>
+                    <label>
+                        <select name="topicsLiked"  class="topicsLiked">
+                            <option>Music</option>
+                            <option>Food</option>
+                            <option>Movie</option>
+                            <option>Gallery</option>
+                        </select>
+                    </label>
+                
+                <p class="paddingsurvey">
+                    <br><strong>What would you like to see in the future?</strong>
+                </p>
+                <label>
+                    <input name="topicsAdd" type="checkbox"
+                        value="Book">
+                    Favourite book<br>
+                </label>
+                <label>
+                    <input name="topicsAdd" type="checkbox"
+                        value="actor">
+                    Favourite actor<br>
+                </label>
+                <label>
+                    <input name="topicsAdd" type="checkbox"
+                        value="author">
+                    Favourite author<br>
+                </label>
+                <label>
+                    <input name="topicsAdd" type="checkbox"
+                        value="singer">
+                    Favourite singer<br>
+                </label>
+                <label>Other:
+                    <input name = "topics" type = "text" size = "25"
+                    maxlength = "30">
+                    <br>
+                </label>
+
+                <p class="paddingsurvey">
+                    <br><strong>Do you have any other comments?</strong>
+                </p>
+                <label>
+                    <input name = "comment" type = "text" size = "25"
+                    maxlength = "300">
+                    <br>
+                </label>
+                <br>
+                <input type = "submit" value = "Submit your feedback">
+            </form>
+        </div>
+
 
 
 
