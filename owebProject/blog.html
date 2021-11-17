@@ -9,7 +9,7 @@
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
     </head>
 
-    <body>
+    <body onload="blogPost()">
 
         <div id="header" class="header">
             <h1>Welcome to the official website of Hristijan Slavkoski</h1>
@@ -50,8 +50,46 @@
             </nav>
         </div>
 
+        <div id="elBlog">
+            <h2 style="text-align: center;"  >
+                <p class="boxblogp">
+                    Share your adventures with us!
+                    <br>
+                </p></h3>
+
+                <form id="blog-form" onsubmit="blogPost()">
+                    <textarea id="blogTxt" class="writing" placeholder="Write short story."></textarea>
+                    <input id="blogAlias" type="text" class="blog-f" name="alias" placeholder="Author">
+                    <input id="blogSbj" type="text" class="blog-f" name="subject" placeholder="Subject">
+                    <input id="blogDate" type="date" class="blog-f" name="date-w" value="xxxx-xx-xx" min="2020-01-01"
+                        max="2022-12-31">
+                    <button id="submit" type="submit">Submit</button>
+                </form>
+                <div id="submittedDiv">
+
+                </div>
+        </div>
 
 
-
+        <script>
+            function blogPost() {
+                event.preventDefault()
+                let blogTxt = document.getElementById("blogTxt").value
+                let blogAlias = document.getElementById("blogAlias").value
+                let blogSbj = document.getElementById("blogSbj").value
+                let submittedDiv = document.getElementById("submittedDiv")
+                let posts = JSON.parse(localStorage.getItem('posts')) || [];
+                let htmlString = "<h2 id='subject'> Title:" + blogSbj + "</h2>" + '<p id="content" style="word-wrap: break-word;">' + blogTxt + "</p>" + "<p id='ime'> Written by: " + blogAlias + "</p>"
+                posts.push(htmlString)
+                localStorage.setItem('posts', JSON.stringify(posts))
+                let newString = "";
+                posts.forEach(element => {
+                    newString += element
+                    newString += "<hr>"
+                });
+                submittedDiv.innerHTML = newString
+                console.log("posts = " + posts)
+            }
+            </script>
     </body>
 </html>

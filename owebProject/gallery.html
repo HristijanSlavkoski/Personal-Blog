@@ -9,7 +9,7 @@
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
     </head>
 
-    <body>
+    <body onload="onLoad()">
 
         <div id="header" class="header">
             <h1>Welcome to the official website of Hristijan Slavkoski</h1>
@@ -50,16 +50,206 @@
             </nav>
         </div>
 
-        <div class="galleryimage">
+        <!-- <div class="galleryimage">
             <a target="_blank" href="./webprogramming.jpg">
                 <img src="./webprogramming.jpg" class="webprogrammingimg"  alt="Web Programming" style="margin-bottom: 2%" >
             </a>
             <a target="_blank" href="./htmlphoto.png">
                 <img src="./htmlphoto.png" class="webprogrammingimg" alt="HTML Programming" style="justify-content: right;">
             </a>
-        </div>
+        </div> -->
 
 
-
+        <table id="table1">
+            <tr>
+                <td id="tabledata" style="text-align: left; vertical-align: top">
+                    <a target="_blank" href="./leva.jpeg">
+                        <h3 class="invistext">This is image</h3>
+                    <img id="images" src="./leva.jpeg" class="webprogrammingimg"  alt="Web Programming" style="margin-bottom: 2%"/>
+                    </a>
+                    <div id="picdesc">
+                        <h2 id="desc">This is left image</h2>
+                        <img onclick="handleClick()" id="clickme1" src="./likebutton3.jpg" class="like" name="button1" />
+                        <h5 class="liketext"></h5>
+                        <p id="likeCounter1">0</p>
+                    </div>
+    
+                    <div id="box">
+                        <p id="comment1" class="c1"></p>
+                        <form onsubmit="comment1()">
+                            <input type="text" id="input1" placeholder="Enter comment" autocapitalize="off" />
+                            <input type="submit" id="submitbutton" value="Add comment">
+                        </form>
+                    </div>
+                </td>
+                <td id="tabledata" style="text-align: left; vertical-align: top; ">
+                    <a target="_blank" href="./webprogramming.jpg">
+                        <h3 class="invistext">This is image</h3>
+                    <img id="images" src="./webprogramming.jpg" class="webprogrammingimg" alt="HTML Programming" style="justify-content: right;"/>
+                    </a>
+                    <div id="picdesc">
+                        <h2 id="desc">This is center image</h2>
+                        <img onclick="handleClick()" id="clickme2" src="./likebutton3.jpg" class="like" name="button2" />
+                        <h5 class="liketext"></h5>
+                        <p id="likeCounter2">0</p>
+                    </div>
+    
+                    <div id="box">
+                        <p id="comment2"></p>
+                        <form onsubmit="comment2()">
+                            <input type="text" id="input2" placeholder="Enter comment" autocapitalize="off" />
+                            <input type="submit" id="submitbutton" value="Add comment">
+                        </form>
+                    </div>
+                </td>
+                <td id="tabledata" style="text-align: left; vertical-align: top; ">
+                    <a target="_blank" href="./desna.jpeg">
+                        <h3 class="invistext">This is image</h3>
+                    <img id="images" src="./desna.jpeg" class="webprogrammingimg" alt="HTML Programming" style="justify-content: right;"/>
+                    </a>
+                    <div id="picdesc">
+                        <h2 id="desc">This is right image</h2>
+                        <img onclick="handleClick()" id="clickme3" src="./likebutton3.jpg" class="like" name="button3" />
+                        <h5 class="liketext"></h5>
+                        <p id="likeCounter3">0</p>
+                    </div>
+    
+                    <div id="box">
+                        <p id="comment3"></p>
+                        <form onsubmit="comment3()">
+                            <input type="text" id="input3" placeholder="Enter comment" autocapitalize="off" />
+                            <input type="submit" id="submitbutton" value="Add comment">
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <script type="text/javascript">
+            var guest = prompt("Hello", "Please enter your name here");
+            const button1 = document.getElementById("clickme1")
+            const button2 = document.getElementById("clickme2")
+            const button3 = document.getElementById("clickme3")
+            let count1 = Number(JSON.parse(localStorage.getItem('likes1'))) || 0;
+            let count2 = Number(JSON.parse(localStorage.getItem('likes2'))) || 0;
+            let count3 = Number(JSON.parse(localStorage.getItem('likes3'))) || 0;
+            const likeCounter1 = document.getElementById("likeCounter1")
+            const likeCounter2 = document.getElementById("likeCounter2")
+            const likeCounter3 = document.getElementById("likeCounter3")
+            const handleClick = () => {
+                const buttonName = event.target.name
+                console.log(buttonName)
+                if (buttonName === "button1") {
+                    count1 += 1
+                    likeCounter1.innerHTML = count1
+                    localStorage.setItem('likes1', count1);
+                }
+                if (buttonName === "button2") {
+                    count2 += 1
+                    likeCounter2.innerHTML = count2;
+                    localStorage.setItem('likes2', count2);
+                }
+                if (buttonName === "button3") {
+                    count3 += 1
+                    likeCounter3.innerHTML = count3;
+                    localStorage.setItem('likes3', count3);
+                }
+            }
+            const onLoad = () => {
+                let json1 = [];
+                let json2 = [];
+                let json3 = [];
+                let string1 = "";
+                let string2 = "";
+                let string3 = "";
+                let likeNum1 = JSON.parse(localStorage.getItem('likes1')) || 0;
+                let likeNum2 = JSON.parse(localStorage.getItem('likes2')) || 0;
+                let likeNum3 = JSON.parse(localStorage.getItem('likes3')) || 0;
+    
+                if (localStorage.getItem('comments1')) {
+                    json1 = JSON.parse(localStorage.getItem('comments1'));
+                    string1 = "";
+                    for (var i = 0; i < json1.length; i++) {
+                        var obj1 = json1[i];
+                        let st1 = JSON.stringify(obj1);
+                        string1 += st1;
+                        string1 += "<hr>";
+                    }
+                }
+                if (localStorage.getItem('comments2')) {
+                    json2 = JSON.parse(localStorage.getItem('comments2'));
+                    string2 = "";
+                    for (var i = 0; i < json2.length; i++) {
+                        var obj2 = json2[i];
+                        let st2 = JSON.stringify(obj2);
+                        string2 += st2;
+                        string2 += "<hr>";
+                    }
+                }
+                if (localStorage.getItem('comments3')) {
+                    json3 = JSON.parse(localStorage.getItem('comments3'));
+                    string3 = "";
+                    for (var i = 0; i < json3.length; i++) {
+                        var obj3 = json3[i];
+                        let st3 = JSON.stringify(obj3);
+                        string3 += st3;
+                        string3 += "<hr>";
+                    }
+                }
+                document.getElementById("comment1").innerHTML = string1;
+                document.getElementById("comment2").innerHTML = string2;
+                document.getElementById("comment3").innerHTML = string3;
+                document.getElementById("likeCounter1").innerHTML = likeNum1;
+                document.getElementById("likeCounter2").innerHTML = likeNum2;
+                document.getElementById("likeCounter3").innerHTML = likeNum3;
+            }
+            function comment1() {
+                event.preventDefault()
+                let t1 = document.getElementById("input1").value;
+                let comm1 = JSON.parse(localStorage.getItem('comments1')) || [];
+                var datum1 = new Date();
+                t1 = guest + ': ' + t1 + '<br>' + datum1.toUTCString();
+                comm1.push(t1)
+                localStorage.setItem('comments1', JSON.stringify(comm1))
+                console.log(comm1)
+                let newString1 = ""
+                comm1.forEach(element => {
+                    newString1 += element
+                    newString1 += "<hr>"
+                });
+                document.getElementById("comment1").innerHTML = newString1;
+            }
+            function comment2() {
+                event.preventDefault()
+                let t2 = document.getElementById("input2").value;
+                let comm2 = JSON.parse(localStorage.getItem('comments2')) || [];
+                var datum2 = new Date();
+                t2 = guest + ': ' + t2 + '<br>' + datum2.toUTCString();
+                comm2.push(t2)
+                localStorage.setItem('comments2', JSON.stringify(comm2))
+                console.log(comm2)
+                let newString2 = ""
+                comm2.forEach(element => {
+                    newString2 += element
+                    newString2 += "<hr>"
+                });
+                document.getElementById("comment2").innerHTML = newString2;
+            }
+            function comment3() {
+                event.preventDefault()
+                let t3 = document.getElementById("input3").value;
+                let comm3 = JSON.parse(localStorage.getItem('comments3')) || [];
+                var datum3 = new Date();
+                t3 = guest + ': ' + t3 + '<br>' + datum3.toUTCString();
+                comm3.push(t3)
+                localStorage.setItem('comments3', JSON.stringify(comm3))
+                console.log(comm3)
+                let newString3 = ""
+                comm3.forEach(element => {
+                    newString3 += element
+                    newString3 += "<hr>"
+                });
+                document.getElementById("comment3").innerHTML = newString3;
+            }
+        </script>
     </body>
 </html>
