@@ -531,8 +531,8 @@ input[type=text]{
 .writing{
     margin-top: 10px;
     margin-left: 10px;
-    height: 300px;
-    width: 250px;
+    height: 350px;
+    width: 300px;
     border: solid 2px rosybrown; 
     border-radius: 1cm;
     padding: 30px;
@@ -548,6 +548,21 @@ input[type=text]{
     border-radius: 1cm;
     padding: 20px;
     width: 30%;
+}
+
+#searchDiv{ 
+    height: 5%;
+    background-color: rgb(255, 204, 108);
+    border-radius: 1cm;
+    padding: 20px;
+    width: 30%;
+    margin-bottom: 10px;
+}
+#SearchSub {
+    display: block;
+    margin-left: 60%;
+    width: 80%;
+    position: absolute;
 }
 
 #submit{

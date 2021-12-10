@@ -7,10 +7,30 @@
             <link rel = "stylesheet" type = "text/css" href = "styles1.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+            
+            </script>
+            <script>
+                $(document).ready(function(){
+                  $("#myInputDisplay").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+                    $("#submittedDiv *").filter(function() {
+                    $(this).toggle($(this).parent().text().toLowerCase().indexOf(value) > -1)
+                    });
+                  });
+                });
+                $(document).ready(function(){
+                  $("#myInputHide").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+                    $("#submittedDiv *").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) == -1)
+                    });
+                  });
+                });
+            </script>
     </head>
 
-    <body onload="blogPost()">
-
+    <body onload="onLoad()">
         <div id="header" class="header">
             <h1>Welcome to the official website of Hristijan Slavkoski</h1>
             <nav class="menu" style = "width: 50%; text-align: right">
@@ -65,13 +85,32 @@
                         max="2022-12-31">
                     <button id="submit" type="submit">Submit</button>
                 </form>
-                <div id="submittedDiv">
+                <div id="SearchSub">
+                    <div id="searchDiv">
+                        <input id="myInputDisplay" type="text" placeholder="Display Searched">
+                        <input id="myInputHide" type="text" placeholder="Hide Searched">
+                    </div>
+
+                    <div id="submittedDiv">
+    
+                    </div>
 
                 </div>
         </div>
 
 
         <script>
+            const onLoad = () => {
+                let arr = []
+                arr = JSON.parse(localStorage.getItem('posts')) || [];
+                let tempString = "";
+                arr.forEach(element => {
+                    tempString += element
+                    //tempString += "<hr>"
+                })
+            document.getElementById("submittedDiv").innerHTML = tempString;
+            }
+            
             function blogPost() {
                 event.preventDefault()
                 let blogTxt = document.getElementById("blogTxt").value
@@ -79,13 +118,18 @@
                 let blogSbj = document.getElementById("blogSbj").value
                 let submittedDiv = document.getElementById("submittedDiv")
                 let posts = JSON.parse(localStorage.getItem('posts')) || [];
-                let htmlString = "<h2 id='subject'> Title:" + blogSbj + "</h2>" + '<p id="content" style="word-wrap: break-word;">' + blogTxt + "</p>" + "<p id='ime'> Written by: " + blogAlias + "</p>"
+                let blogDate = document.getElementById("blogDate").value
+                
+                let htmlString = "<div><h2 id='subject'> Title:" + blogSbj + "</h2>" + 
+                '<p id="content" style="word-wrap: break-word;">' + blogTxt + "</p>" + 
+                "<p id='ime'> Written by: " + blogAlias + "</p>" + "<p id='date'> Date:" + blogDate + "</p><hr></div>"
+
                 posts.push(htmlString)
                 localStorage.setItem('posts', JSON.stringify(posts))
                 let newString = "";
                 posts.forEach(element => {
                     newString += element
-                    newString += "<hr>"
+                    //newString += "<hr>"
                 });
                 submittedDiv.innerHTML = newString
                 console.log("posts = " + posts)
