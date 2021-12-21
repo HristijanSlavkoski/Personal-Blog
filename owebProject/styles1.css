@@ -245,7 +245,10 @@ img:hover{
 
 .boxfood{ 
     justify-items: center;
+    justify-content: center;
     text-align: center;
+    display:block;
+    padding-bottom: 10px;
 }
 
 .boxfoodp {
@@ -256,6 +259,7 @@ img:hover{
     width: 50%;
     padding: 30px;
     border-radius: 1cm;
+    text-align: center;
 }
 
 .pizzaimg{
@@ -263,9 +267,11 @@ img:hover{
     background-color:rgb(255, 204, 108);
     margin: auto;
     margin-top: 1vh;
-    width: 50%;
+    height: 182px;
+    width: 276px;
     padding: 30px;
     border-radius: 1cm;
+    display: inline-block;
 }
 
 .boxmovie{
@@ -533,7 +539,7 @@ input[type=text]{
     margin-left: 10px;
     height: 350px;
     width: 300px;
-    border: solid 2px rosybrown; 
+    border: solid 2px rgb(255, 204, 108);
     border-radius: 1cm;
     padding: 30px;
 }
@@ -568,4 +574,22 @@ input[type=text]{
 #submit{
     display:block;
     margin:20px;
+}
+
+.slickfood
+{
+    justify-items: center;
+    justify-content: center;
+    margin-left: 13.5vw;
+    margin-right: 10vw;
+    max-width: 74vw;
+    margin-top: 50px;
+    background-image: linear-gradient(orange,rgb(255, 204, 108));
+    border-radius: 1cm;
+    border: solid 2px rgb(255, 204, 108);
+    padding-bottom: 20px;
+}
+
+.brishikomentar{
+    float: right;
 }

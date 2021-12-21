@@ -119,10 +119,20 @@
                 let submittedDiv = document.getElementById("submittedDiv")
                 let posts = JSON.parse(localStorage.getItem('posts')) || [];
                 let blogDate = document.getElementById("blogDate").value
-                
-                let htmlString = "<div><h2 id='subject'> Title:" + blogSbj + "</h2>" + 
+                if (localStorage.getItem("posts") === null) {
+                    num=0;
+                }
+                else{
+                    lastItem = posts[posts.length - 1];
+                    num=$(lastItem).attr("id");
+                    num++;
+                    console.log("IDto na last item e "+num);
+                }
+                let htmlString = "<div id='"+num+"'><h2 id='subject'> Title:" + blogSbj+ 
+                "</h2> <button class='brishikomentar'> X </button>" + 
                 '<p id="content" style="word-wrap: break-word;">' + blogTxt + "</p>" + 
-                "<p id='ime'> Written by: " + blogAlias + "</p>" + "<p id='date'> Date:" + blogDate + "</p><hr></div>"
+                "<p id='ime'> Written by: " + blogAlias + "</p>" + "<p id='date'> Date:" + blogDate + "</p>" +
+                "<hr></div>"
 
                 posts.push(htmlString)
                 localStorage.setItem('posts', JSON.stringify(posts))
@@ -134,6 +144,64 @@
                 submittedDiv.innerHTML = newString
                 console.log("posts = " + posts)
             }
+
+            $(document).on('click', '.brishikomentar', function() {
+                count=$("#submittedDiv").find("div").length;
+                    postId=$(this).parent().parent().attr("id");
+                    let posts = JSON.parse(localStorage.getItem('posts')) || [];
+                    let tempString = "";
+                    for (let i = 0; i < count; i++) {
+                        if($(posts[i]).attr("id")==postId){
+                            posts.splice(i,1);
+                        }
+                    }
+                    for(let i=0;i<posts.length;i++){
+                        tempString+=posts[i];
+                    }
+                    console.log(tempString);
+                    localStorage.setItem('posts', JSON.stringify(posts));
+                    document.getElementById("submittedDiv").innerHTML = tempString;
+            });
+
+            //ne raboti nitu kaj button da stava onclick, nitu so ova dolu,
+            //nitu bez document.ready (samo direktno clickfunction)...
+            //raboti toa pogore, so metod on, pa definirano click
+            /*
+            $(document).ready(function(){
+                $(".brishikomentar").click(function(){
+                    count=$("#submittedDiv").find("div").length;
+                    console.log("Vkupno elementi ima: "+count);
+                    postId=$(this).parent().parent().attr("id");
+                    let posts = JSON.parse(localStorage.getItem('posts')) || [];
+                    let tempString = "";
+                    for (let i = 0; i < count; i++) {
+                        if($(posts[i]).attr("id")!=postId){
+                            tempString+=posts[i];
+                        }
+                    }
+                    localStorage.setItem('posts', JSON.stringify(posts));
+                    document.getElementById("submittedDiv").innerHTML = tempString;
+            */
+
+
+
+                    /*
+                    postId=$(this).parent().parent().attr("id");
+                    console.log("IDto za brishenje e: "+postId);
+                    let posts = JSON.parse(localStorage.getItem('posts')) || [];
+                    //posts.splice(postId - 1, 1);
+                    localStorage.removeItem('posts');
+                    let tempString = "";
+                    posts.forEach(element => {
+                        tempString += element
+                    })
+                    localStorage.setItem('posts', JSON.stringify(posts));
+                    document.getElementById("submittedDiv").innerHTML = tempString;
+                    
+                    })
+                    
+                })
+                */
             </script>
     </body>
 </html>
