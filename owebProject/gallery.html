@@ -3,6 +3,7 @@
 <html>
     <head>
         <meta charset = "utf-8">
+        <link rel="shortcut icon" href="minilogo_B5j_1.ico"/>
         <title> Hristijan Slavkoski Website</title>
             <link rel = "stylesheet" type = "text/css" href = "styles1.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -123,6 +124,22 @@
                     </div>
                 </td>
             </tr>
+            <tr>
+                <td id="tabledata" class="addPhoto0" style="text-align: left; vertical-align: top; ">
+                    <div id="box">
+                        <form onsubmit="handleAdd()">
+                            <div>
+                                <!--<label for="myFile" class="custom-file-upload">
+                                    <i class="fas fa-file-upload"></i> Upload Picture -->
+                                    <!--<i class="fas fa-file-upload"></i> Upload Picture-->
+                                    <input type="file" id="myFile" accept="image/*" name="image">
+                                    <!-- </label> -->
+                            </div>
+                            <input type="submit" value="Add photo">
+                        </form>
+                    </div>
+                </td>
+            </tr>
         </table>
         <script type="text/javascript">
             var guest = prompt("Hello", "Please enter your name here");
@@ -135,6 +152,10 @@
             const likeCounter1 = document.getElementById("likeCounter1")
             const likeCounter2 = document.getElementById("likeCounter2")
             const likeCounter3 = document.getElementById("likeCounter3")
+
+            let added=0;
+            let rows=0;
+
             const handleClick = () => {
                 const buttonName = event.target.name
                 console.log(buttonName)
@@ -154,7 +175,7 @@
                     localStorage.setItem('likes3', count3);
                 }
             }
-            const onLoad = () => {
+                const onLoad = () => {
                 let json1 = [];
                 let json2 = [];
                 let json3 = [];
@@ -249,6 +270,51 @@
                     newString3 += "<hr>"
                 });
                 document.getElementById("comment3").innerHTML = newString3;
+            }
+            const handleAdd = () => {
+                event.preventDefault()
+                let imageParent = document.getElementsByClassName("addPhoto"+rows)[added]
+                let files = document.getElementById('myFile')
+                const file = files.files[0]
+                if(file==null){
+                    alert("Prvo odberete slika, a potoa kliknete 'Add photo'");
+                }
+                else{
+                    const reader = new FileReader()
+                    reader.readAsDataURL(file)
+
+                    reader.onload = () => {
+                        imageParent.innerHTML = "<a target=\"_blank\" href="+reader.result+">"+
+                            "<h3 class=\"invistext\"> This is added image </h3>"+
+                            "<img id='imageAdded' src='" + reader.result + "' class=\"webprogrammingimg\" alt='Added photo'"+
+                            "style=\"justify=content:right;\"/></a>"+
+                            "<div id='picdesc'>"+
+                            "<h2 id=\"desc\">This is added image num: "+((rows*3)+added+1)+"</h2></div>"+
+                            //ovde treba za like, a pod nego za komentar
+                            "<div id=\"box\">               </div>";
+                            imageParent.src = reader.result  
+
+                        if(added!=2){
+                            imageParent.parentElement.innerHTML+="<td id=\"tabledata\" class=\"addPhoto"+rows+"\" style=\"text-align: left; vertical-align: top; \">"+
+                            "<div id=\"box\">" +
+                            "<form onsubmit=\"handleAdd()\">"+
+                            "<div> <input type=\"file\" id=\"myFile\" accept=\"image/*\""+
+                            " name=\"image\"></div><input type=\"submit\" value=\"Add photo\"> </form>"+
+                            "</div> </td>";
+                            added++;
+                        }
+                        else{
+                            added=0;
+                            rows++;
+                            imageParent.parentElement.parentElement.innerHTML+="<tr><td id=\"tabledata\" class=\"addPhoto"+rows+"\" style=\"text-align: left; vertical-align: top; \">"+
+                            "<div id=\"box\">" +
+                            "<form onsubmit=\"handleAdd()\">"+
+                            "<div> <input type=\"file\" id=\"myFile\" accept=\"image/*\""+
+                            " name=\"image\"> </div><input type=\"submit\" value=\"Add photo\"> </form>"+
+                            "</div> </td></tr>";
+                        }
+                    }
+                }                
             }
         </script>
     </body>

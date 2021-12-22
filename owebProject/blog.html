@@ -3,6 +3,7 @@
 <html>
     <head>
         <meta charset = "utf-8">
+        <link rel="shortcut icon" href="minilogo_B5j_1.ico"/>
         <title> Hristijan Slavkoski Website</title>
             <link rel = "stylesheet" type = "text/css" href = "styles1.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -147,22 +148,34 @@
 
             $(document).on('click', '.brishikomentar', function() {
                 count=$("#submittedDiv").find("div").length;
-                    postId=$(this).parent().parent().attr("id");
+                    postId=$(this).parent().attr("id");
                     let posts = JSON.parse(localStorage.getItem('posts')) || [];
                     let tempString = "";
+                    console.log(postId+"\n");
                     for (let i = 0; i < count; i++) {
                         if($(posts[i]).attr("id")==postId){
+                            console.log("Go brishime "+postId+"\n");
                             posts.splice(i,1);
                         }
                     }
+                    //sledniov ciklus e za da pri sekoe brishenje gi azurira id 
+                    //na divovite, taka sto brojkite ke odat so red
+                    //od 0 do broj na divovi,
+                    //a moze i beznego ama koga ke se izbrishe 2
+                    //ke bide 0 1 3 4....
+                    //vaka se azurira id-to na sekoe brishenje
+                    for(let i=0;i<posts.length;i++){
+                        temp="id='"+i+"'>";
+                        posts[i]=posts[i].replace(/id\=\'[0-9]*\'\>/,temp);
+                    }
                     for(let i=0;i<posts.length;i++){
                         tempString+=posts[i];
-                    }
+                    }                    
+
                     console.log(tempString);
                     localStorage.setItem('posts', JSON.stringify(posts));
                     document.getElementById("submittedDiv").innerHTML = tempString;
             });
-
             //ne raboti nitu kaj button da stava onclick, nitu so ova dolu,
             //nitu bez document.ready (samo direktno clickfunction)...
             //raboti toa pogore, so metod on, pa definirano click

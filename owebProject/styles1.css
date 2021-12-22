@@ -390,9 +390,74 @@ input[type=submit]:hover{
     box-shadow: 0 0 11px rgba(33, 33, 33, 0.904); 
 }
 
+input[type=file] {
+    
+}
+
+input[type=file]{
+    font-size: larger;
+}
+
+/*
+ova e ako koristime costum label, pritoa vo gore input[type=file]
+treba da pishime display:none;
+.custom-file-upload {
+    font-family: 'Brush Script MT', cursive, sans-serif;
+    padding:5px 15px; 
+    background:rgba(1, 1, 26, 0.082);
+    color:rgb(0, 0, 0); 
+    border-radius: 0.5em;
+    border-width:0.2em;
+    border-color: black;
+    cursor:pointer;
+    border-radius: 15px; 
+    margin-bottom: 15%;
+}
+
+.custom-file-upload:hover{
+    box-shadow: 0 0 11px rgba(33, 33, 33, 0.904); 
+}
+*/
+
+/*Ova e ako ne koristime label*/
+input[type=file]::file-selector-button {
+    font-family: 'Brush Script MT', cursive, sans-serif;
+    padding:5px 15px; 
+    background:rgba(1, 1, 26, 0.082);
+    color:rgb(0, 0, 0); 
+    border-radius: 0.5em;
+    border-width:0.2em;
+    border-color: black;
+    cursor:pointer;
+    border-radius: 15px; 
+    margin-bottom: 25%;
+  }
+  
+  input[type=file]::file-selector-button:hover {
+    box-shadow: 0 0 11px rgba(33, 33, 33, 0.904); 
+  }
+  
+
+input[type=file]:hover{
+    box-shadow: 0 0 11px rgba(33, 33, 33, 0.904); 
+}
+
 input[type=text]{
     margin-top: 1vh;
     margin-bottom: 1vh;
+}
+
+#myFile{
+    font-family: 'Brush Script MT', cursive, sans-serif;
+    padding:5px 15px; 
+    background:rgba(1, 1, 26, 0.082);
+    color:rgb(0, 0, 0); 
+    border-radius: 0.5em;
+    border-width:0.2em;
+    border-color: black;
+    cursor:pointer;
+    border-radius: 5px; 
+    margin-bottom: 15% ;
 }
 
 .paddingsurvey{
@@ -406,9 +471,17 @@ input[type=text]{
     display: block;
 }
 
+#imageAdded{
+    float: top;
+    width: 397px;
+    height: 400px;
+    display: block;
+}
+
 #table1 {
     border-spacing: 5vw;
     table-layout: fixed;
+    display: flex;
 }
 
 #picdesc {
