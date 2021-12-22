@@ -289,9 +289,15 @@
                             "<img id='imageAdded' src='" + reader.result + "' class=\"webprogrammingimg\" alt='Added photo'"+
                             "style=\"justify=content:right;\"/></a>"+
                             "<div id='picdesc'>"+
-                            "<h2 id=\"desc\">This is added image num: "+((rows*3)+added+1)+"</h2></div>"+
-                            //ovde treba za like, a pod nego za komentar
-                            "<div id=\"box\">               </div>";
+                            "<h2 id=\"desc\">This is added image num: "+((rows*3)+added+1)+"</h2>"+
+                            "<img  src=\"./likebutton3.jpg\" class=\"like\" name=\"button2\" />"+
+                            "<h5 class=\"liketext\"></h5><p id=\"likeCounter2\">0</p></div>"+
+                            
+                            
+
+                            "<div id=\"box\"> <p id=\"comment2\"></p>"+
+                            "<form onsubmit=\"#\"><input type=\"text\" id=\"input2\" placeholder=\"Enter comment\" autocapitalize=\"off\" />"+
+                            "<input type=\"submit\" id=\"submitbutton\" value=\"Add comment\"></form></div>";
                             imageParent.src = reader.result  
 
                         if(added!=2){
